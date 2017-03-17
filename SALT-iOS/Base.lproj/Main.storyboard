@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eV3-8Z-Jey" id="MyE-cN-OGn">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="47.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="47"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flE-PD-SEq">
@@ -73,7 +73,7 @@
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="VUv-UN-Axn"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vO2-wB-P48">
                             <connections>
-                                <segue destination="elL-j0-skg" kind="show" id="0f4-UR-wma"/>
+                                <segue destination="3aR-wv-QSb" kind="show" identifier="ticketCreateSegue" id="O2h-MX-Z8v"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -95,18 +95,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tpM-Nn-ztB" id="pFK-n6-OTD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n8h-ca-N5V">
-                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0IT-an-Lid">
-                                            <rect key="frame" x="316" y="12" width="44" height="20.5"/>
+                                            <rect key="frame" x="316" y="11" width="44" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -132,14 +132,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FkI-6U-JXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2464.8000000000002" y="447.52623688155927"/>
-        </scene>
-        <!--Page View Controller-->
-        <scene sceneID="LE1-9B-gSV">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="elL-j0-skg" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZQ-5o-9UC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1526" y="-326"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OhQ-lv-U5J">
@@ -179,6 +171,294 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EF-fy-41v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1525.5999999999999" y="447.52623688155927"/>
+        </scene>
+        <!--Add a Ticket-->
+        <scene sceneID="A5L-Oc-OUF">
+            <objects>
+                <tableViewController id="avh-g8-egY" customClass="TicketCreateTableViewController" customModule="SALT_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="llO-j2-b9j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection headerTitle="Ticket Information" id="veK-oS-bu0">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="ovA-bz-q90">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ovA-bz-q90" id="c7t-Yp-Uhk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6nH-pQ-mmI" customClass="SkyFloatingLabelTextField" customModule="SALT_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="7.5" width="339" height="39"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6nH-pQ-mmI" firstAttribute="bottom" secondItem="c7t-Yp-Uhk" secondAttribute="bottomMargin" id="4KP-tM-7nw"/>
+                                                <constraint firstItem="6nH-pQ-mmI" firstAttribute="leading" secondItem="c7t-Yp-Uhk" secondAttribute="leading" constant="18" id="LFK-e0-YNk"/>
+                                                <constraint firstAttribute="trailing" secondItem="6nH-pQ-mmI" secondAttribute="trailing" constant="18" id="pit-cw-Qm1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="G4c-Qw-UWS">
+                                        <rect key="frame" x="0.0" y="83" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G4c-Qw-UWS" id="zNZ-MP-tHd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wcD-Qv-pR5" customClass="SkyFloatingLabelTextField" customModule="SALT_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="7.5" width="339" height="39"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Claimant First Name"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="wcD-Qv-pR5" secondAttribute="trailing" constant="18" id="EOz-DN-RBX"/>
+                                                <constraint firstItem="wcD-Qv-pR5" firstAttribute="leading" secondItem="zNZ-MP-tHd" secondAttribute="leading" constant="18" id="fhU-JF-idb"/>
+                                                <constraint firstItem="wcD-Qv-pR5" firstAttribute="bottom" secondItem="zNZ-MP-tHd" secondAttribute="bottomMargin" id="lQM-aL-Q3x"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="7VE-Na-YRl">
+                                        <rect key="frame" x="0.0" y="138" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7VE-Na-YRl" id="rRL-p9-j5P">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U53-en-kWx" customClass="SkyFloatingLabelTextField" customModule="SALT_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="7.5" width="339" height="39"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Claimant Last Name"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="U53-en-kWx" secondAttribute="trailing" constant="18" id="QGk-nw-q4C"/>
+                                                <constraint firstItem="U53-en-kWx" firstAttribute="leading" secondItem="rRL-p9-j5P" secondAttribute="leading" constant="18" id="mmi-Ox-xgy"/>
+                                                <constraint firstItem="U53-en-kWx" firstAttribute="bottom" secondItem="rRL-p9-j5P" secondAttribute="bottomMargin" id="pAj-2x-56t"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="se5-a7-G8n">
+                                        <rect key="frame" x="0.0" y="193" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="se5-a7-G8n" id="lKv-3y-Vab">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zNf-sZ-8GD" customClass="SkyFloatingLabelTextField" customModule="SALT_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="7.5" width="339" height="39"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Order Date"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zNf-sZ-8GD" firstAttribute="bottom" secondItem="lKv-3y-Vab" secondAttribute="bottomMargin" id="Wsz-Q7-w9N"/>
+                                                <constraint firstAttribute="trailing" secondItem="zNf-sZ-8GD" secondAttribute="trailing" constant="18" id="aoi-qF-Nn1"/>
+                                                <constraint firstItem="zNf-sZ-8GD" firstAttribute="leading" secondItem="lKv-3y-Vab" secondAttribute="leading" constant="18" id="uJq-hM-gMN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="CcY-Tv-lxM">
+                                        <rect key="frame" x="0.0" y="248" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CcY-Tv-lxM" id="j3X-eL-b7j">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uey-io-Oqw" customClass="SkyFloatingLabelTextField" customModule="SALT_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="7.5" width="339" height="39"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Call Order Number"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uey-io-Oqw" firstAttribute="leading" secondItem="j3X-eL-b7j" secondAttribute="leading" constant="18" id="JlK-Va-Auz"/>
+                                                <constraint firstItem="uey-io-Oqw" firstAttribute="bottom" secondItem="j3X-eL-b7j" secondAttribute="bottomMargin" id="Ldc-eR-MJo"/>
+                                                <constraint firstAttribute="trailing" secondItem="uey-io-Oqw" secondAttribute="trailing" constant="18" id="xzk-Af-WV0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="x3v-hT-pZt">
+                                        <rect key="frame" x="0.0" y="303" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x3v-hT-pZt" id="B57-OP-lWz">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xtH-LF-I5H" customClass="SkyFloatingLabelTextField" customModule="SALT_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="7.5" width="339" height="39"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="BPA Number"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="xtH-LF-I5H" secondAttribute="trailing" constant="18" id="VID-RZ-aAE"/>
+                                                <constraint firstItem="xtH-LF-I5H" firstAttribute="leading" secondItem="B57-OP-lWz" secondAttribute="leading" constant="18" id="XNU-2O-gNe"/>
+                                                <constraint firstItem="xtH-LF-I5H" firstAttribute="bottom" secondItem="B57-OP-lWz" secondAttribute="bottomMargin" id="uom-8w-Q5h"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="evx-AF-MoG">
+                                        <rect key="frame" x="0.0" y="358" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="evx-AF-MoG" id="pyA-jQ-EhN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D1R-EJ-2rF" customClass="SkyFloatingLabelTextField" customModule="SALT_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="7.5" width="339" height="39"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="CAN"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="D1R-EJ-2rF" firstAttribute="leading" secondItem="pyA-jQ-EhN" secondAttribute="leading" constant="18" id="UKT-NF-0t7"/>
+                                                <constraint firstItem="D1R-EJ-2rF" firstAttribute="bottom" secondItem="pyA-jQ-EhN" secondAttribute="bottomMargin" id="Y8v-Qh-Xx5"/>
+                                                <constraint firstAttribute="trailing" secondItem="D1R-EJ-2rF" secondAttribute="trailing" constant="18" id="gGA-nS-MEN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="EVj-C5-21J">
+                                        <rect key="frame" x="0.0" y="413" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EVj-C5-21J" id="4z0-Kv-Fpm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7f0-dY-2u4" customClass="SkyFloatingLabelTextField" customModule="SALT_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="7.5" width="339" height="39"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Vendor TIN"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7f0-dY-2u4" firstAttribute="leading" secondItem="4z0-Kv-Fpm" secondAttribute="leading" constant="18" id="DO9-gO-OYo"/>
+                                                <constraint firstItem="7f0-dY-2u4" firstAttribute="bottom" secondItem="4z0-Kv-Fpm" secondAttribute="bottomMargin" id="J7m-tZ-Eud"/>
+                                                <constraint firstAttribute="trailing" secondItem="7f0-dY-2u4" secondAttribute="trailing" constant="18" id="dQ8-EO-7bu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="6xb-Kh-LUU">
+                                        <rect key="frame" x="0.0" y="468" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6xb-Kh-LUU" id="3Ds-fk-M6j">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zex-2a-7Ra" customClass="SkyFloatingLabelTextField" customModule="SALT_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="7.5" width="339" height="39"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="SOC"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zex-2a-7Ra" firstAttribute="leading" secondItem="3Ds-fk-M6j" secondAttribute="leading" constant="18" id="gJ2-U5-sqT"/>
+                                                <constraint firstItem="Zex-2a-7Ra" firstAttribute="bottom" secondItem="3Ds-fk-M6j" secondAttribute="bottomMargin" id="oLK-N6-VHJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zex-2a-7Ra" secondAttribute="trailing" constant="18" id="xhO-mv-N9W"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Hearing Information" id="s8H-2p-e6E">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JhX-su-Bym">
+                                        <rect key="frame" x="0.0" y="551" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JhX-su-Bym" id="s82-pN-9mb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gCM-b4-2Pd">
+                                        <rect key="frame" x="0.0" y="595" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gCM-b4-2Pd" id="REV-rT-5Gm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Sze-4n-RTS">
+                                        <rect key="frame" x="0.0" y="639" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sze-4n-RTS" id="eUf-RO-Jh1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="avh-g8-egY" id="DMl-q6-1et"/>
+                            <outlet property="delegate" destination="avh-g8-egY" id="wiR-PA-Ik6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add a Ticket" id="Fvn-QG-vci">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LHN-5Z-jC5">
+                            <connections>
+                                <action selector="dismiss:" destination="avh-g8-egY" id="wlA-Mj-rSn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6mn-gG-PcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2464.8000000000002" y="-346.77661169415296"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Yr7-Dh-2RQ">
+            <objects>
+                <navigationController id="3aR-wv-QSb" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n1A-54-0cT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="avh-g8-egY" kind="relationship" relationship="rootViewController" id="qAz-22-6lT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sPJ-jG-Tfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="-347"/>
         </scene>
     </scenes>
 </document>

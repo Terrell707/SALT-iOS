@@ -49,8 +49,11 @@ class TicketTableViewController: UITableViewController {
                     let navVC = segue.destination as! UINavigationController
                     let ticketDetailVC = navVC.topViewController as! TicketDetailTableViewController
                     ticketDetailVC.ticket = ticket
-
+                    print("Moving to Ticket Detail View")
                 }
+            } else if identifier == "ticketCreateSegue" {
+                let navVC = segue.destination as! UINavigationController
+                print("Moving to Create Ticket View")
             }
         }
     }
