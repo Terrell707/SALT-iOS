@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A83961E1E63053900BDB518 /* TicketDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83961D1E63053900BDB518 /* TicketDetailTableViewCell.swift */; };
+		3A8396201E63059700BDB518 /* TicketDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83961F1E63059700BDB518 /* TicketDetailTableViewController.swift */; };
+		3A8396221E63106400BDB518 /* Double+toUSD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8396211E63106400BDB518 /* Double+toUSD.swift */; };
+		3AC38B041E583A0E0036B05E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38B031E583A0E0036B05E /* AppDelegate.swift */; };
+		3AC38B091E583A0E0036B05E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC38B071E583A0E0036B05E /* Main.storyboard */; };
+		3AC38B0B1E583A0E0036B05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC38B0A1E583A0E0036B05E /* Assets.xcassets */; };
+		3AC38B0E1E583A0E0036B05E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC38B0C1E583A0E0036B05E /* LaunchScreen.storyboard */; };
+		3AC38B191E583A0E0036B05E /* SALT_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38B181E583A0E0036B05E /* SALT_iOSTests.swift */; };
+		3AC38B241E583A0E0036B05E /* SALT_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38B231E583A0E0036B05E /* SALT_iOSUITests.swift */; };
+		3AC38B321E583FC90036B05E /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38B311E583FC90036B05E /* Ticket.swift */; };
+		3AF0F2561E62EB2B00CBA67E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0F2551E62EB2B00CBA67E /* DataController.swift */; };
+		3AF0F2581E62EEA500CBA67E /* TicketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0F2571E62EEA500CBA67E /* TicketTableViewController.swift */; };
+		3AF0F25A1E62F1AF00CBA67E /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0F2591E62F1AF00CBA67E /* TicketTableViewCell.swift */; };
+		3AF0F25D1E62F50A00CBA67E /* Date+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0F25C1E62F50A00CBA67E /* Date+toString.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3AC38B151E583A0E0036B05E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AC38AF81E583A0E0036B05E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AC38AFF1E583A0E0036B05E;
+			remoteInfo = "SALT-iOS";
+		};
+		3AC38B201E583A0E0036B05E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AC38AF81E583A0E0036B05E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AC38AFF1E583A0E0036B05E;
+			remoteInfo = "SALT-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3A83961D1E63053900BDB518 /* TicketDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketDetailTableViewCell.swift; path = Controllers/TicketDetailTableViewCell.swift; sourceTree = "<group>"; };
+		3A83961F1E63059700BDB518 /* TicketDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketDetailTableViewController.swift; path = Controllers/TicketDetailTableViewController.swift; sourceTree = "<group>"; };
+		3A8396211E63106400BDB518 /* Double+toUSD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Double+toUSD.swift"; path = "Extensions/Double+toUSD.swift"; sourceTree = "<group>"; };
+		3AC38B001E583A0E0036B05E /* SALT-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SALT-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC38B031E583A0E0036B05E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3AC38B081E583A0E0036B05E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3AC38B0A1E583A0E0036B05E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AC38B0D1E583A0E0036B05E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3AC38B0F1E583A0E0036B05E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AC38B141E583A0E0036B05E /* SALT-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SALT-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC38B181E583A0E0036B05E /* SALT_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SALT_iOSTests.swift; sourceTree = "<group>"; };
+		3AC38B1A1E583A0E0036B05E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AC38B1F1E583A0E0036B05E /* SALT-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SALT-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC38B231E583A0E0036B05E /* SALT_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SALT_iOSUITests.swift; sourceTree = "<group>"; };
+		3AC38B251E583A0E0036B05E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AC38B311E583FC90036B05E /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ticket.swift; path = Models/Ticket.swift; sourceTree = "<group>"; };
+		3AF0F2551E62EB2B00CBA67E /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		3AF0F2571E62EEA500CBA67E /* TicketTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketTableViewController.swift; path = Controllers/TicketTableViewController.swift; sourceTree = "<group>"; };
+		3AF0F2591E62F1AF00CBA67E /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketTableViewCell.swift; path = Controllers/TicketTableViewCell.swift; sourceTree = "<group>"; };
+		3AF0F25C1E62F50A00CBA67E /* Date+toString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+toString.swift"; path = "Extensions/Date+toString.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3AC38AFD1E583A0E0036B05E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AC38B111E583A0E0036B05E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AC38B1C1E583A0E0036B05E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AC38AF71E583A0E0036B05E = {
+			isa = PBXGroup;
+			children = (
+				3AC38B021E583A0E0036B05E /* SALT-iOS */,
+				3AC38B171E583A0E0036B05E /* SALT-iOSTests */,
+				3AC38B221E583A0E0036B05E /* SALT-iOSUITests */,
+				3AC38B011E583A0E0036B05E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3AC38B011E583A0E0036B05E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AC38B001E583A0E0036B05E /* SALT-iOS.app */,
+				3AC38B141E583A0E0036B05E /* SALT-iOSTests.xctest */,
+				3AC38B1F1E583A0E0036B05E /* SALT-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AC38B021E583A0E0036B05E /* SALT-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3AF0F25B1E62F4E700CBA67E /* Extensions */,
+				3AC38B341E583FD80036B05E /* Views */,
+				3AC38B331E583FCF0036B05E /* Models */,
+				3AC38B351E5842E90036B05E /* Controllers */,
+				3AC38B031E583A0E0036B05E /* AppDelegate.swift */,
+				3AC38B0A1E583A0E0036B05E /* Assets.xcassets */,
+				3AC38B0F1E583A0E0036B05E /* Info.plist */,
+			);
+			path = "SALT-iOS";
+			sourceTree = "<group>";
+		};
+		3AC38B171E583A0E0036B05E /* SALT-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				3AC38B181E583A0E0036B05E /* SALT_iOSTests.swift */,
+				3AC38B1A1E583A0E0036B05E /* Info.plist */,
+			);
+			path = "SALT-iOSTests";
+			sourceTree = "<group>";
+		};
+		3AC38B221E583A0E0036B05E /* SALT-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3AC38B231E583A0E0036B05E /* SALT_iOSUITests.swift */,
+				3AC38B251E583A0E0036B05E /* Info.plist */,
+			);
+			path = "SALT-iOSUITests";
+			sourceTree = "<group>";
+		};
+		3AC38B331E583FCF0036B05E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3AC38B311E583FC90036B05E /* Ticket.swift */,
+				3AF0F2551E62EB2B00CBA67E /* DataController.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3AC38B341E583FD80036B05E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3AC38B071E583A0E0036B05E /* Main.storyboard */,
+				3AC38B0C1E583A0E0036B05E /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3AC38B351E5842E90036B05E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3AF0F2571E62EEA500CBA67E /* TicketTableViewController.swift */,
+				3A83961F1E63059700BDB518 /* TicketDetailTableViewController.swift */,
+				3AF0F2591E62F1AF00CBA67E /* TicketTableViewCell.swift */,
+				3A83961D1E63053900BDB518 /* TicketDetailTableViewCell.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3AF0F25B1E62F4E700CBA67E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3AF0F25C1E62F50A00CBA67E /* Date+toString.swift */,
+				3A8396211E63106400BDB518 /* Double+toUSD.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AC38AFF1E583A0E0036B05E /* SALT-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AC38B281E583A0E0036B05E /* Build configuration list for PBXNativeTarget "SALT-iOS" */;
+			buildPhases = (
+				3AC38AFC1E583A0E0036B05E /* Sources */,
+				3AC38AFD1E583A0E0036B05E /* Frameworks */,
+				3AC38AFE1E583A0E0036B05E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SALT-iOS";
+			productName = "SALT-iOS";
+			productReference = 3AC38B001E583A0E0036B05E /* SALT-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3AC38B131E583A0E0036B05E /* SALT-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AC38B2B1E583A0E0036B05E /* Build configuration list for PBXNativeTarget "SALT-iOSTests" */;
+			buildPhases = (
+				3AC38B101E583A0E0036B05E /* Sources */,
+				3AC38B111E583A0E0036B05E /* Frameworks */,
+				3AC38B121E583A0E0036B05E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AC38B161E583A0E0036B05E /* PBXTargetDependency */,
+			);
+			name = "SALT-iOSTests";
+			productName = "SALT-iOSTests";
+			productReference = 3AC38B141E583A0E0036B05E /* SALT-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3AC38B1E1E583A0E0036B05E /* SALT-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AC38B2E1E583A0E0036B05E /* Build configuration list for PBXNativeTarget "SALT-iOSUITests" */;
+			buildPhases = (
+				3AC38B1B1E583A0E0036B05E /* Sources */,
+				3AC38B1C1E583A0E0036B05E /* Frameworks */,
+				3AC38B1D1E583A0E0036B05E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AC38B211E583A0E0036B05E /* PBXTargetDependency */,
+			);
+			name = "SALT-iOSUITests";
+			productName = "SALT-iOSUITests";
+			productReference = 3AC38B1F1E583A0E0036B05E /* SALT-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3AC38AF81E583A0E0036B05E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Adrian T. Chambers";
+				TargetAttributes = {
+					3AC38AFF1E583A0E0036B05E = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					3AC38B131E583A0E0036B05E = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3AC38AFF1E583A0E0036B05E;
+					};
+					3AC38B1E1E583A0E0036B05E = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3AC38AFF1E583A0E0036B05E;
+					};
+				};
+			};
+			buildConfigurationList = 3AC38AFB1E583A0E0036B05E /* Build configuration list for PBXProject "SALT-iOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3AC38AF71E583A0E0036B05E;
+			productRefGroup = 3AC38B011E583A0E0036B05E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AC38AFF1E583A0E0036B05E /* SALT-iOS */,
+				3AC38B131E583A0E0036B05E /* SALT-iOSTests */,
+				3AC38B1E1E583A0E0036B05E /* SALT-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AC38AFE1E583A0E0036B05E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC38B0E1E583A0E0036B05E /* LaunchScreen.storyboard in Resources */,
+				3AC38B0B1E583A0E0036B05E /* Assets.xcassets in Resources */,
+				3AC38B091E583A0E0036B05E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AC38B121E583A0E0036B05E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AC38B1D1E583A0E0036B05E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AC38AFC1E583A0E0036B05E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A83961E1E63053900BDB518 /* TicketDetailTableViewCell.swift in Sources */,
+				3AF0F25D1E62F50A00CBA67E /* Date+toString.swift in Sources */,
+				3AF0F2561E62EB2B00CBA67E /* DataController.swift in Sources */,
+				3AF0F2581E62EEA500CBA67E /* TicketTableViewController.swift in Sources */,
+				3AF0F25A1E62F1AF00CBA67E /* TicketTableViewCell.swift in Sources */,
+				3AC38B321E583FC90036B05E /* Ticket.swift in Sources */,
+				3A8396201E63059700BDB518 /* TicketDetailTableViewController.swift in Sources */,
+				3A8396221E63106400BDB518 /* Double+toUSD.swift in Sources */,
+				3AC38B041E583A0E0036B05E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AC38B101E583A0E0036B05E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC38B191E583A0E0036B05E /* SALT_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AC38B1B1E583A0E0036B05E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC38B241E583A0E0036B05E /* SALT_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3AC38B161E583A0E0036B05E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AC38AFF1E583A0E0036B05E /* SALT-iOS */;
+			targetProxy = 3AC38B151E583A0E0036B05E /* PBXContainerItemProxy */;
+		};
+		3AC38B211E583A0E0036B05E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AC38AFF1E583A0E0036B05E /* SALT-iOS */;
+			targetProxy = 3AC38B201E583A0E0036B05E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3AC38B071E583A0E0036B05E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AC38B081E583A0E0036B05E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3AC38B0C1E583A0E0036B05E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AC38B0D1E583A0E0036B05E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3AC38B261E583A0E0036B05E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3AC38B271E583A0E0036B05E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3AC38B291E583A0E0036B05E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "SALT-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "atchambers.SALT-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		3AC38B2A1E583A0E0036B05E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "SALT-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "atchambers.SALT-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		3AC38B2C1E583A0E0036B05E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "SALT-iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "atchambers.SALT-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SALT-iOS.app/SALT-iOS";
+			};
+			name = Debug;
+		};
+		3AC38B2D1E583A0E0036B05E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "SALT-iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "atchambers.SALT-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SALT-iOS.app/SALT-iOS";
+			};
+			name = Release;
+		};
+		3AC38B2F1E583A0E0036B05E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "SALT-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "atchambers.SALT-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "SALT-iOS";
+			};
+			name = Debug;
+		};
+		3AC38B301E583A0E0036B05E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "SALT-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "atchambers.SALT-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "SALT-iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3AC38AFB1E583A0E0036B05E /* Build configuration list for PBXProject "SALT-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AC38B261E583A0E0036B05E /* Debug */,
+				3AC38B271E583A0E0036B05E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AC38B281E583A0E0036B05E /* Build configuration list for PBXNativeTarget "SALT-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AC38B291E583A0E0036B05E /* Debug */,
+				3AC38B2A1E583A0E0036B05E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AC38B2B1E583A0E0036B05E /* Build configuration list for PBXNativeTarget "SALT-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AC38B2C1E583A0E0036B05E /* Debug */,
+				3AC38B2D1E583A0E0036B05E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AC38B2E1E583A0E0036B05E /* Build configuration list for PBXNativeTarget "SALT-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AC38B2F1E583A0E0036B05E /* Debug */,
+				3AC38B301E583A0E0036B05E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3AC38AF81E583A0E0036B05E /* Project object */;
+}
