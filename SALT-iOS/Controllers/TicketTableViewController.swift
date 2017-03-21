@@ -12,17 +12,14 @@ class TicketTableViewController: UITableViewController {
 
     var data: DataController?
     var tickets: [Ticket]?
+    var years: [Int]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         data = DataController()
-        tickets = data?.tickets
-        
-        let ticket = Ticket(orderDate: Date(), callOrderNo: "12345678", claimantFirstName: "Adrian", claimantLastName: "Chambers", ticketNo: 12345678, bpaNo: "1234", can: 1234, hearingSite: "Sacramento", vendorTin: "12345", soc: "1234", usageDate: Date(), usageTime: Date(), rate: 60.00, onTheRecord: true, fileType: .Digital)
-        
-        tickets?.append(ticket)
-        
+        data?.generate_tickets()
+        tickets = data!.tickets
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,6 +31,46 @@ class TicketTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func ticketsByDate(tickets: [Ticket]) -> [Date: [Ticket]] {
+        // Sort the tickets by date so we can display them correctly.
+        let sortedTickets = tickets.sorted(by: { $0.usageDate! > $1.usageDate! })
+        
+        let calendar = Calendar.current
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale.current
+//        dateFormatter.timeZone = calendar.timeZone
+//        dateFormatter.dateFormat = "MMMM YYYY"
+        
+        // Used to keep track of the current year and month.
+        var previousYear = -1
+        var previousMonth = -1
+        var sectionDate: Date?
+    
+        // Represent how tickets will be laid out in the table.
+        var ticketTable = [Date: [Ticket]]()
+        
+        for ticket in sortedTickets {
+            let components = calendar.dateComponents([.year, .month], from: ticket.usageDate!)
+            let year = components.year
+            let month = components.month
+            if (year != previousYear || month != previousMonth) {
+                // Create the section heading.
+                sectionDate = calendar.date(from: components)
+                // Create an array of tickets for the new section heading.
+                ticketTable[sectionDate!] = [Ticket]()
+                previousYear = year!
+                previousMonth = month!
+            }
+            if let section = sectionDate {
+                ticketTable[section]!.append(ticket)
+            } else {
+                print("Missed a section because of missed date! \(sectionDate)")
+            }
+        }
+        
+        return ticketTable
     }
     
     // MARK: - Navigation
@@ -64,45 +101,86 @@ class TicketTableViewController: UITableViewController {
 extension TicketTableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        if let _ = tickets {
+            let ticketSections = self.ticketsByDate(tickets: tickets!)
+            print("Ticket Sections: \(ticketSections.count)")
+            return ticketSections.count
+        }
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let _ = tickets {
+            // Get the tickets broken down by month and year.
+            let ticketSections = self.ticketsByDate(tickets: tickets!)
+            
+            // Get the correct month/year from the list for the current section and format it into a string.
+            let sectionDate = ticketSections.sortedKeysDescending[section]
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale.current
+            dateFormatter.timeZone = Calendar.current.timeZone
+            dateFormatter.dateFormat = "MMMM YYYY"
+            let sectionTitle = dateFormatter.string(from: sectionDate)
+            return sectionTitle
+        }
+        return ""
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let _ = tickets {
-            return tickets!.count
-        } else {
-            return 0
+            // Get the tickets broken down by month and year.
+            let ticketSections = self.ticketsByDate(tickets: tickets!)
+            
+            // Get the correct set of tickets by the current section.
+            let sectionDate = ticketSections.sortedKeysDescending[section]
+            let ticketRows = ticketSections[sectionDate]
+            if let rows = ticketRows {
+                print("Rows: \(rows.count)")
+                return rows.count
+            }
         }
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ticket", for: indexPath) as! TicketTableViewCell
-        if let ticket = tickets?[indexPath.row] {
-            // Formats the name and presents it in the cell.
-            if  let lastName = ticket.claimantLastName,
-                let firstName = ticket.claimantFirstName {
-                cell.name.text = ("\(lastName), \(firstName)")
-            } else if let name = ticket.claimantLastName {
-                cell.name.text = name
-            } else if let name = ticket.claimantFirstName {
-                cell.name.text = name
-            } else {
-                cell.name.text = "No Name"
-            }
+        if let _ = tickets {
+            // Get the tickets broken down by month and year.
+            let ticketSections = self.ticketsByDate(tickets: tickets!)
             
-            // Formats the ticket number and presents it in the cell.
-            if let ticketNumber = ticket.ticketNo {
-                cell.number.text = "\(ticketNumber)"
-            } else {
-                cell.number.text = "No Ticket Number"
-            }
+            // Get the correct section.
+            let sectionDate = ticketSections.sortedKeysDescending[indexPath.section]
             
-            // Formats the date and presents it in the cell.
-            if let usageDate = ticket.usageDate {
-                cell.date.text = usageDate.toString(format: "MMM d, h:mm a")
-            } else {
-                cell.date.text = "No Date"
+            // Get the correct set of tickets for the section.
+            let ticketRows = ticketSections[sectionDate]
+            
+            // Get the correct ticket for the row.
+            if let ticket = ticketRows?[indexPath.row] {
+                // Formats the name and presents it in the cell.
+                if  let lastName = ticket.claimantLastName,
+                    let firstName = ticket.claimantFirstName {
+                    cell.name.text = ("\(lastName), \(firstName)")
+                } else if let name = ticket.claimantLastName {
+                    cell.name.text = name
+                } else if let name = ticket.claimantFirstName {
+                    cell.name.text = name
+                } else {
+                    cell.name.text = "No Name"
+                }
+                
+                // Formats the ticket number and presents it in the cell.
+                if let ticketNumber = ticket.ticketNo {
+                    cell.number.text = "\(ticketNumber)"
+                } else {
+                    cell.number.text = "No Ticket Number"
+                }
+                
+                // Formats the date and presents it in the cell.
+                if let usageDate = ticket.usageDate {
+                    cell.date.text = usageDate.toString(format: "MMM d yyyy, h:mm a")
+                } else {
+                    cell.date.text = "No Date"
+                }
             }
         }
 

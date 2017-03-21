@@ -22,7 +22,6 @@ struct Ticket {
     let vendorTin: String?
     var soc: String?
     var usageDate: Date?
-    var usageTime: Date?
     var rate: Double?
     var onTheRecord: Bool?
     var fileType: FileType?

@@ -21,10 +21,12 @@
 		3AD95F481E7BBFB5006C0A9F /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD95F451E7BBFB5006C0A9F /* SkyFloatingLabelTextField.swift */; };
 		3AD95F491E7BBFB5006C0A9F /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD95F461E7BBFB5006C0A9F /* SkyFloatingLabelTextFieldWithIcon.swift */; };
 		3AD95F4A1E7BBFB5006C0A9F /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD95F471E7BBFB5006C0A9F /* UITextField+fixCaretPosition.swift */; };
+		3AD95F4F1E7BCC28006C0A9F /* RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD95F4E1E7BCC28006C0A9F /* RandomNumber.swift */; };
 		3AF0F2561E62EB2B00CBA67E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0F2551E62EB2B00CBA67E /* DataController.swift */; };
 		3AF0F2581E62EEA500CBA67E /* TicketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0F2571E62EEA500CBA67E /* TicketTableViewController.swift */; };
 		3AF0F25A1E62F1AF00CBA67E /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0F2591E62F1AF00CBA67E /* TicketTableViewCell.swift */; };
 		3AF0F25D1E62F50A00CBA67E /* Date+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0F25C1E62F50A00CBA67E /* Date+toString.swift */; };
+		3AF3C0BF1E80FFF9002BD8F8 /* Dictionary+sortedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3C0BE1E80FFF9002BD8F8 /* Dictionary+sortedKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +67,12 @@
 		3AD95F451E7BBFB5006C0A9F /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = Views/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		3AD95F461E7BBFB5006C0A9F /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Views/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
 		3AD95F471E7BBFB5006C0A9F /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Views/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		3AD95F4E1E7BCC28006C0A9F /* RandomNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomNumber.swift; path = Extensions/RandomNumber.swift; sourceTree = "<group>"; };
 		3AF0F2551E62EB2B00CBA67E /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		3AF0F2571E62EEA500CBA67E /* TicketTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketTableViewController.swift; path = Controllers/TicketTableViewController.swift; sourceTree = "<group>"; };
 		3AF0F2591E62F1AF00CBA67E /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketTableViewCell.swift; path = Controllers/TicketTableViewCell.swift; sourceTree = "<group>"; };
 		3AF0F25C1E62F50A00CBA67E /* Date+toString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+toString.swift"; path = "Extensions/Date+toString.swift"; sourceTree = "<group>"; };
+		3AF3C0BE1E80FFF9002BD8F8 /* Dictionary+sortedKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+sortedKeys.swift"; path = "Extensions/Dictionary+sortedKeys.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				3AC38B021E583A0E0036B05E /* SALT-iOS */,
+				3AD95F4D1E7BC803006C0A9F /* Resources */,
 				3AC38B171E583A0E0036B05E /* SALT-iOSTests */,
 				3AC38B221E583A0E0036B05E /* SALT-iOSUITests */,
 				3AC38B011E583A0E0036B05E /* Products */,
@@ -181,11 +186,21 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		3AD95F4D1E7BC803006C0A9F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			path = "SALT-iOS";
+			sourceTree = "<group>";
+		};
 		3AF0F25B1E62F4E700CBA67E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				3AF0F25C1E62F50A00CBA67E /* Date+toString.swift */,
 				3A8396211E63106400BDB518 /* Double+toUSD.swift */,
+				3AD95F4E1E7BCC28006C0A9F /* RandomNumber.swift */,
+				3AF3C0BE1E80FFF9002BD8F8 /* Dictionary+sortedKeys.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -326,11 +341,13 @@
 			files = (
 				3A83961E1E63053900BDB518 /* TicketDetailTableViewCell.swift in Sources */,
 				3AD95F481E7BBFB5006C0A9F /* SkyFloatingLabelTextField.swift in Sources */,
+				3AF3C0BF1E80FFF9002BD8F8 /* Dictionary+sortedKeys.swift in Sources */,
 				3AF0F25D1E62F50A00CBA67E /* Date+toString.swift in Sources */,
 				3AD95F4A1E7BBFB5006C0A9F /* UITextField+fixCaretPosition.swift in Sources */,
 				3AF0F2561E62EB2B00CBA67E /* DataController.swift in Sources */,
 				3AF0F2581E62EEA500CBA67E /* TicketTableViewController.swift in Sources */,
 				3AF0F25A1E62F1AF00CBA67E /* TicketTableViewCell.swift in Sources */,
+				3AD95F4F1E7BCC28006C0A9F /* RandomNumber.swift in Sources */,
 				3AC38B321E583FC90036B05E /* Ticket.swift in Sources */,
 				3AD95F491E7BBFB5006C0A9F /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				3A8396201E63059700BDB518 /* TicketDetailTableViewController.swift in Sources */,
