@@ -11,15 +11,17 @@ import UIKit
 class TicketTableViewController: UITableViewController {
 
     var data: DataController?
-    var tickets: [Ticket]?
+    var tickets: [Date: [Ticket]]?
     var years: [Int]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Generate the sample tickets and order them by date.
         data = DataController()
         data?.generate_tickets()
-        tickets = data!.tickets
+        tickets = ticketsByDate(tickets: data!.tickets)
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,10 +40,6 @@ class TicketTableViewController: UITableViewController {
         let sortedTickets = tickets.sorted(by: { $0.usageDate! > $1.usageDate! })
         
         let calendar = Calendar.current
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.locale = Locale.current
-//        dateFormatter.timeZone = calendar.timeZone
-//        dateFormatter.dateFormat = "MMMM YYYY"
         
         // Used to keep track of the current year and month.
         var previousYear = -1
@@ -80,17 +78,23 @@ class TicketTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let identifier = segue.identifier {
+            // If the ticket detail segue was selected, pass the correct ticket to the next view.
             if identifier == "ticketDetailSegue" {
-                let selectedRow = self.tableView.indexPathForSelectedRow?.row
-                if let ticket = tickets?[selectedRow!] {
-                    let navVC = segue.destination as! UINavigationController
-                    let ticketDetailVC = navVC.topViewController as! TicketDetailTableViewController
-                    ticketDetailVC.ticket = ticket
-                    print("Moving to Ticket Detail View")
+                let selectedPath = self.tableView.indexPathForSelectedRow
+                // If we have tickets and there is a valid selected section, then grab the ticket.
+                if let ticketSections = tickets, let section = selectedPath?.section {
+                    let sectionDate = ticketSections.sortedKeysDescending[section]
+                    // Check that there is a valid ticket to pass to the next view.
+                    if let ticket = ticketSections[sectionDate]?[selectedPath!.row] {
+                        let navVC = segue.destination as! UINavigationController
+                        let ticketDetailVC = navVC.topViewController as! TicketDetailTableViewController
+                        ticketDetailVC.ticket = ticket
+                        print("Moving to Ticket Detail View")
+                    }
                 }
             } else if identifier == "ticketCreateSegue" {
-                let navVC = segue.destination as! UINavigationController
-                print("Moving to Create Ticket View")
+            let navVC = segue.destination as! UINavigationController
+            print("Moving to Create Ticket View")
             }
         }
     }
@@ -101,8 +105,7 @@ class TicketTableViewController: UITableViewController {
 extension TicketTableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if let _ = tickets {
-            let ticketSections = self.ticketsByDate(tickets: tickets!)
+        if let ticketSections = tickets {
             print("Ticket Sections: \(ticketSections.count)")
             return ticketSections.count
         }
@@ -112,25 +115,23 @@ extension TicketTableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let _ = tickets {
             // Get the tickets broken down by month and year.
-            let ticketSections = self.ticketsByDate(tickets: tickets!)
-            
-            // Get the correct month/year from the list for the current section and format it into a string.
-            let sectionDate = ticketSections.sortedKeysDescending[section]
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale.current
-            dateFormatter.timeZone = Calendar.current.timeZone
-            dateFormatter.dateFormat = "MMMM YYYY"
-            let sectionTitle = dateFormatter.string(from: sectionDate)
-            return sectionTitle
+            if let ticketSections = tickets {
+                // Get the correct month/year from the list for the current section and format it into a string.
+                let sectionDate = ticketSections.sortedKeysDescending[section]
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale.current
+                dateFormatter.timeZone = Calendar.current.timeZone
+                dateFormatter.dateFormat = "MMMM YYYY"
+                let sectionTitle = dateFormatter.string(from: sectionDate)
+                return sectionTitle
+            }
         }
-        return ""
+        return nil
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let _ = tickets {
-            // Get the tickets broken down by month and year.
-            let ticketSections = self.ticketsByDate(tickets: tickets!)
-            
+        // Get the tickets broken down by month and year.
+        if let ticketSections = tickets {
             // Get the correct set of tickets by the current section.
             let sectionDate = ticketSections.sortedKeysDescending[section]
             let ticketRows = ticketSections[sectionDate]
@@ -144,9 +145,9 @@ extension TicketTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ticket", for: indexPath) as! TicketTableViewCell
-        if let _ = tickets {
-            // Get the tickets broken down by month and year.
-            let ticketSections = self.ticketsByDate(tickets: tickets!)
+        
+        // Get the tickets broken down by month and year.
+        if let ticketSections = tickets {
             
             // Get the correct section.
             let sectionDate = ticketSections.sortedKeysDescending[indexPath.section]
