@@ -27,15 +27,15 @@ struct Ticket {
     var fileType: FileType?
     
     // Hearing Informaton
-//    var judge: Judge?
-//    var representatives: [Expert]?
-//    var vocationals: [Expert]?
-//    var medicals: [Expert]?
-//    var interpreters: [Expert]?
+    var judge: Judge?
+    var representatives: Expert?
+    var vocational: Expert?
+    var medicals: [Expert]?
+    var interpreter: Expert?
     
-    enum FileType: Int {
-        case Digital = 0;
-        case Partial = 1;
-        case Paper = 2;
+    enum FileType {
+        case Digital
+        case Partial
+        case Paper
     }
 }

@@ -12,16 +12,22 @@ struct DataController {
     var tickets = [Ticket]()
     var monthYears = [String]()
     
-    // Used to generate Sample Data
-    let first_names = ["Adrian", "Joesph", "Talanda", "Alama", "Justin", "Jessica", "Christope", "Chris", "Tammy",
+    // Used to generate Sample Ticket Data
+    let firstNames = ["Adrian", "Joesph", "Talanda", "Alama", "Justin", "Jessica", "Christope", "Chris", "Tammy",
                        "Lucy", "Leo", "Barbara", "Patrick", "Tamar", "Crissle", "Derek", "Lyndsay", "Jonathan",
-                       "Mandy", "Amanda", "Kenan", "Lakshmi", "Alex", "Marlon", "Jenika", "Tenika"]
-    let last_names = ["Sullivan", "Williams", "Sao", "Orme", "Lee", "Ravel", "Toyo", "Jamar", "Saldana",
-                      "Martinez", "Smith", "Park", "Bounds", "Chambers", "Davis", "Totah", "Entzel"]
+                       "Mandy", "Amanda", "Kenan", "Lakshmi", "Alex", "Marlon", "Jenika", "Tenika", "David",
+                       "Sarah", "Jessica", "Robert", "James", "Gary", "Steve"]
+    let lastNames = ["Sullivan", "Williams", "Sao", "Orme", "Lee", "Ravel", "Toyo", "Jamar", "Saldana",
+                     "Martinez", "Smith", "Park", "Bounds", "Chambers", "Davis", "Totah", "Entzel", "Blume",
+                     "Eckerson", "Gillis", "Tronvig", "Villerie", "Downey", "Drumwright", "Creighton-Cravel",
+                     "Giffin", "Rafkind"]
     let sites = ["Sacramento", "San Jose", "Oakland", "San Rafael"]
+
+    
+    // Used to get the user's locale
     let calendar = Calendar.current
     
-    mutating func generate_tickets(num: Int = 50) {
+    mutating func generateTickets(num: Int = 50) {
         for _ in 1...num {
             var usageDate = Date()
             var orderDate = Date()
@@ -53,8 +59,8 @@ struct DataController {
             }
             
             let callOrderNo = "\(Int(randomNumber(inRange: 11111111...99999999)))"
-            let firstName = "\(first_names[randomNumber(inRange: 0...first_names.count-1)])"
-            let lastName = "\(last_names[randomNumber(inRange: 0...last_names.count-1)])"
+            let firstName = "\(firstNames[randomNumber(inRange: 0...firstNames.count-1)])"
+            let lastName = "\(lastNames[randomNumber(inRange: 0...lastNames.count-1)])"
             let ticketNo = Int(randomNumber(inRange: 11111111...99999999))
             let bpaNo = "\(Int(randomNumber(inRange: 1111...9999)))"
             let can = 1234
@@ -65,8 +71,37 @@ struct DataController {
             let onTheRecord = true
             let fileType = Ticket.FileType.Digital
             
-            tickets.append(Ticket(orderDate: orderDate, callOrderNo: callOrderNo, claimantFirstName: firstName, claimantLastName: lastName, ticketNo: ticketNo, bpaNo: bpaNo, can: can, hearingSite: hearingSite, vendorTin: vendorTin, soc: soc, usageDate: usageDate, rate: rate, onTheRecord: onTheRecord, fileType: fileType))
+            var medicalExperts = [Expert]()
+            for _ in 0...randomNumber(inRange: 0...2){
+                medicalExperts.append(generateExpert(role: Expert.Role.Medical))
+            }
+            
+            tickets.append(Ticket(orderDate: orderDate, callOrderNo: callOrderNo, claimantFirstName: firstName, claimantLastName: lastName, ticketNo: ticketNo, bpaNo: bpaNo, can: can, hearingSite: hearingSite, vendorTin: vendorTin, soc: soc, usageDate: usageDate, rate: rate, onTheRecord: onTheRecord, fileType: fileType, judge: generateJudge(), representatives: generateExpert(role: Expert.Role.Representative), vocational: generateExpert(role: Expert.Role.Vocational), medicals: medicalExperts, interpreter: nil))
         }
+    }
+    
+    func generateJudge() -> Judge {
+        let firstName = "\(firstNames[randomNumber(inRange: 0...firstNames.count-1)])"
+        let lastName = "\(lastNames[randomNumber(inRange: 0...lastNames.count-1)])"
+        let office = generateOffice()
+        
+        return Judge(firstName: firstName, lastName: lastName, office: office, active: true)
+    }
+    
+    func generateOffice() -> Office {
+        let codes = ["X84", "X95", "X43"]
+        let names = ["X84": "Sacramento", "X95": "San Jose", "X43": "Oakland"]
+        let code = "\(codes[randomNumber(inRange: 0...codes.count-1)])"
+        let address = "1234 Test Blvd, Someplace CA, 91234"
+        
+        return Office(code: code, name: names[code], address: address, phoneNumber: "(123)456-7890", email: "testemail@ssa.com", can: "1234", pay: 60.00)
+    }
+    
+    func generateExpert(role: Expert.Role) -> Expert {
+        let firstName = firstNames[randomNumber(inRange: 0...firstNames.count-1)]
+        let lastName = lastNames[randomNumber(inRange: 0...lastNames.count-1)]
+        
+        return Expert(firstName: firstName, lastName: lastName, role: role)
     }
     
     func ticketsByMonthYear(month:Int, year: Int) -> [Ticket] {

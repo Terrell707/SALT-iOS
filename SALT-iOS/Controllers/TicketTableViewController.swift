@@ -19,7 +19,7 @@ class TicketTableViewController: UITableViewController {
 
         // Generate the sample tickets and order them by date.
         data = DataController()
-        data?.generate_tickets()
+        data?.generateTickets()
         tickets = ticketsByDate(tickets: data!.tickets)
         
         

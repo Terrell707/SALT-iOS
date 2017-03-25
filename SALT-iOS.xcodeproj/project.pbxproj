@@ -18,6 +18,9 @@
 		3AC38B191E583A0E0036B05E /* SALT_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38B181E583A0E0036B05E /* SALT_iOSTests.swift */; };
 		3AC38B241E583A0E0036B05E /* SALT_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38B231E583A0E0036B05E /* SALT_iOSUITests.swift */; };
 		3AC38B321E583FC90036B05E /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38B311E583FC90036B05E /* Ticket.swift */; };
+		3AD0F0731E86173100672B5E /* Judge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0F0721E86173100672B5E /* Judge.swift */; };
+		3AD0F0751E8617A900672B5E /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0F0741E8617A900672B5E /* Office.swift */; };
+		3AD0F0771E86182300672B5E /* Expert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0F0761E86182300672B5E /* Expert.swift */; };
 		3AD95F481E7BBFB5006C0A9F /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD95F451E7BBFB5006C0A9F /* SkyFloatingLabelTextField.swift */; };
 		3AD95F491E7BBFB5006C0A9F /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD95F461E7BBFB5006C0A9F /* SkyFloatingLabelTextFieldWithIcon.swift */; };
 		3AD95F4A1E7BBFB5006C0A9F /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD95F471E7BBFB5006C0A9F /* UITextField+fixCaretPosition.swift */; };
@@ -64,6 +67,9 @@
 		3AC38B231E583A0E0036B05E /* SALT_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SALT_iOSUITests.swift; sourceTree = "<group>"; };
 		3AC38B251E583A0E0036B05E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AC38B311E583FC90036B05E /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ticket.swift; path = Models/Ticket.swift; sourceTree = "<group>"; };
+		3AD0F0721E86173100672B5E /* Judge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Judge.swift; path = Models/Judge.swift; sourceTree = "<group>"; };
+		3AD0F0741E8617A900672B5E /* Office.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Office.swift; path = Models/Office.swift; sourceTree = "<group>"; };
+		3AD0F0761E86182300672B5E /* Expert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Expert.swift; path = Models/Expert.swift; sourceTree = "<group>"; };
 		3AD95F451E7BBFB5006C0A9F /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = Views/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		3AD95F461E7BBFB5006C0A9F /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Views/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
 		3AD95F471E7BBFB5006C0A9F /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Views/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
@@ -156,7 +162,10 @@
 		3AC38B331E583FCF0036B05E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3AD0F0761E86182300672B5E /* Expert.swift */,
+				3AD0F0721E86173100672B5E /* Judge.swift */,
 				3AC38B311E583FC90036B05E /* Ticket.swift */,
+				3AD0F0741E8617A900672B5E /* Office.swift */,
 				3AF0F2551E62EB2B00CBA67E /* DataController.swift */,
 			);
 			name = Models;
@@ -344,14 +353,17 @@
 				3AF3C0BF1E80FFF9002BD8F8 /* Dictionary+sortedKeys.swift in Sources */,
 				3AF0F25D1E62F50A00CBA67E /* Date+toString.swift in Sources */,
 				3AD95F4A1E7BBFB5006C0A9F /* UITextField+fixCaretPosition.swift in Sources */,
+				3AD0F0731E86173100672B5E /* Judge.swift in Sources */,
 				3AF0F2561E62EB2B00CBA67E /* DataController.swift in Sources */,
 				3AF0F2581E62EEA500CBA67E /* TicketTableViewController.swift in Sources */,
 				3AF0F25A1E62F1AF00CBA67E /* TicketTableViewCell.swift in Sources */,
+				3AD0F0751E8617A900672B5E /* Office.swift in Sources */,
 				3AD95F4F1E7BCC28006C0A9F /* RandomNumber.swift in Sources */,
 				3AC38B321E583FC90036B05E /* Ticket.swift in Sources */,
 				3AD95F491E7BBFB5006C0A9F /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				3A8396201E63059700BDB518 /* TicketDetailTableViewController.swift in Sources */,
 				3ABD526D1E7BB47300CBF39E /* TicketCreateTableViewController.swift in Sources */,
+				3AD0F0771E86182300672B5E /* Expert.swift in Sources */,
 				3A8396221E63106400BDB518 /* Double+toUSD.swift in Sources */,
 				3AC38B041E583A0E0036B05E /* AppDelegate.swift in Sources */,
 			);

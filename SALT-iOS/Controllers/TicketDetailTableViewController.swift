@@ -58,8 +58,7 @@ extension TicketDetailTableViewController {
         case 0:
             return 10
         case 1:
-            // TODO: Need to return the correct number later.
-            return 0
+            return 7
         default:
             return 0
         }
@@ -113,6 +112,27 @@ extension TicketDetailTableViewController {
         case (0, 9):
             cell.textLabel?.text = "Rate:"
             (text, color) = formatForCell(property: ticket?.rate)
+        case (1, 0):
+            cell.textLabel?.text = "On the Record:"
+            (text, color) = formatForCell(property: ticket?.onTheRecord)
+        case (1, 1):
+            cell.textLabel?.text = "File Type:"
+            (text, color) = formatForCell(property: ticket?.fileType)
+        case (1, 2):
+            cell.textLabel?.text = "Judge:"
+            (text, color) = formatForCell(property: ticket?.judge)
+        case (1, 3):
+            cell.textLabel?.text = "Representative:"
+            (text, color) = formatForCell(property: ticket?.representatives)
+        case (1, 4):
+            cell.textLabel?.text = "Vocational Expert:"
+            (text, color) = formatForCell(property: ticket?.vocational)
+        case (1, 5):
+            cell.textLabel?.text = "Medical Experts:"
+            (text, color) = formatForCell(property: ticket?.medicals)
+        case (1, 6):
+            cell.textLabel?.text = "Interpreter:"
+            (text, color) = formatForCell(property: ticket?.interpreter)
         default:
             cell.textLabel?.text = "None"
             cell.detailTextLabel?.text = "None"
@@ -124,22 +144,72 @@ extension TicketDetailTableViewController {
         return cell
     }
     
+    // Formats the detail text for a cell based on the type of property 
+    //  passed in.
     func formatForCell(property: Any?) -> (String, UIColor) {
         let textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         let noneTextColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         if let prop = property {
+            // Format the date to string.
             if prop is Date {
                 return ((prop as! Date).toString(), textColor)
             }
+            // Convert int to string.
             else if prop is Int {
                 return ("\(prop)", textColor)
             }
+            // Convert double to string.
             else if prop is Double {
                 return ((prop as! Double).toUSD(), textColor)
             }
+            // Just return the string.
             else if prop is String {
                 return (prop as! String, textColor)
             }
+            // Convert Boolean to Yes or No
+            else if prop is Bool {
+                var result: String
+                let boolean = prop as! Bool
+                if boolean {
+                    result = "Yes"
+                } else {
+                    result = "No"
+                }
+                return (result, textColor)
+            }
+            // Convert the Ticket FileType Enum to string.
+            else if prop is Ticket.FileType {
+                return ("\(prop as! Ticket.FileType)", textColor)
+            }
+            // Convert the list of expert names into a multiline string.
+            else if prop is [Expert] {
+                let experts = prop as! [Expert]
+                var expertString = ""
+                var firstRun = true
+                for expert in experts {
+                    // Append a newline only if we aren't on the first run.
+                    if firstRun == false {
+                        expertString += "\n"
+                    } else {
+                        firstRun = false
+                    }
+                    
+                    // Format the name and add it to the string.
+                    expertString += getExpertName(expert: expert)
+
+                    expertString += "\n"
+                }
+                return (expertString, textColor)
+            }
+            // Convert the expert name into a string.
+            else if prop is Expert {
+                return (getExpertName(expert: prop as? Expert), textColor)
+            }
+            // Conver the judge name into a string
+            else if prop is Judge {
+                return (getJudgeName(judge: prop as? Judge), textColor)
+            }
+            // Otherwise, just try and force a conversion to string.
             else {
                 return (prop as! String, textColor)
             }
@@ -147,7 +217,50 @@ extension TicketDetailTableViewController {
             return ("None", noneTextColor)
         }
     }
-
+    
+    // Format the name for a expert.
+    private func getExpertName(expert: Expert?) -> String {
+        var expertString = ""
+        
+        // Format the names of experts.
+        if  let firstName = expert?.firstName,
+            let lastName = expert?.lastName {
+            expertString += "\(lastName), \(firstName)"
+        }
+        else if let lastName = expert?.lastName {
+            expertString += "\(lastName)"
+        }
+        else if let firstName = expert?.firstName {
+            expertString += "\(firstName)"
+        }
+        else {
+            expertString += "No Name"
+        }
+        
+        return expertString
+    }
+    
+    private func getJudgeName(judge: Judge?) -> String {
+        var judgeString = ""
+        
+        // Format the names of experts.
+        if  let firstName = judge?.firstName,
+            let lastName = judge?.lastName {
+            judgeString += "\(lastName), \(firstName)"
+        }
+        else if let lastName = judge?.lastName {
+            judgeString += "\(lastName)"
+        }
+        else if let firstName = judge?.firstName {
+            judgeString += "\(firstName)"
+        }
+        else {
+            judgeString += "No Name"
+        }
+        
+        return judgeString
+    }
+  
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
