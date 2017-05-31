@@ -8,13 +8,47 @@
 
 import UIKit
 
-class TicketCreateTableViewController: UITableViewController {
+class TicketCreateTableViewController: UITableViewController, UITextFieldDelegate {
 
+    // Used to store the text that the user enters for each field.
+    var ticketFields: [Int: String]?
+    // Used to populate each text field with the details of a ticket.
+    var ticketToEdit: Ticket?
+    // Used to keep track of the active textfield in case user clicks "Save"
+    //  while a field is being editted.
+    var activeTextfield: UITextField?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Hides the seperators between cells.
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Populate each field with info from the passed in ticket. Otherwise, start fresh.
+        if let ticket = ticketToEdit {
+            
+        } else {
+            ticketFields = [Int: String]()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Makes it so that each text view adds the delegate.
+        for cell in self.tableView.visibleCells {
+            for sub in cell.contentView.subviews {
+                if let sub = sub as? UITextField {
+                    print("Textfield: \(sub.placeholder ?? "No Placeholder Text")")
+                    sub.delegate = self
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,104 +76,107 @@ class TicketCreateTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func saveTicket(_ sender: UIBarButtonItem) {
+        // Check to see if user is currently editing a field. If so, grab the text from it.
+        if let activeField = activeTextfield {
+            // Add the text to the dictionary.
+            if ticketFields != nil {
+                ticketFields?[activeField.tag] = activeField.text!
+            } else {
+                ticketFields = [Int: String]()
+                ticketFields?[activeField.tag] = activeField.text!
+            }
+        }
+        
+        // Go through each field in the table.
+        if let fields = ticketFields {
+            let fieldTags = TicketTextFieldTags.self
+            var newTicket = Ticket()
+            newTicket.ticketNo = Int(fields[fieldTags.TicketNumber.rawValue]!)
+            newTicket.claimantFirstName = fields[fieldTags.ClaimantFirstName.rawValue]
+            newTicket.claimantLastName = fields[fieldTags.ClaimantLastName.rawValue]
+            newTicket.usageDate = fields[fieldTags.HearingDate.rawValue]?.toDate()
+            newTicket.orderDate = fields[fieldTags.OrderDate.rawValue]?.toDate()
+            newTicket.callOrderNo = fields[fieldTags.CallOrderNumber.rawValue]
+            newTicket.bpaNo = fields[fieldTags.BPANumber.rawValue]!
+            newTicket.can = Int(fields[fieldTags.CAN.rawValue]!)
+            newTicket.vendorTin = fields[fieldTags.VendorTIN.rawValue]
+            newTicket.soc = fields[fieldTags.SOC.rawValue]
+            newTicket.rate = Double(60.00)
+            newTicket.onTheRecord = true
+            newTicket.fileType = Ticket.FileType.Digital
+            
+            // Hearing Information
+            let office = Office(code: fields[fieldTags.OfficeCode.rawValue], name: fields[fieldTags.OfficeName.rawValue])
+            let judge = Judge(firstName: fields[fieldTags.JudgeFirstName.rawValue], lastName: fields[fieldTags.JudgeLastName.rawValue], office: office, active: true)
+            let rep = Expert(firstName: fields[fieldTags.RepFirstName.rawValue], lastName: fields[fieldTags.RepLastName.rawValue], role: Expert.Role.Representative)
+            let vocational = Expert(firstName: fields[fieldTags.VocationalFirstName.rawValue], lastName: fields[fieldTags.VocationalLastName.rawValue], role: Expert.Role.Vocational)
+            let medical1 = Expert(firstName: fields[fieldTags.MedicalFirstName.rawValue], lastName: fields[fieldTags.MedicalLastName.rawValue], role: Expert.Role.Medical)
+            let interpreter = Expert(firstName: fields[fieldTags.Interpreter.rawValue], lastName: nil, role: Expert.Role.Interpreter)
+
+            newTicket.hearingSite = office
+            newTicket.judge = judge
+            newTicket.representative = rep
+            newTicket.vocational = vocational
+            newTicket.medicals?.append(medical1)
+            newTicket.interpreter = interpreter
+        }
+    }
+    
+    
     // MARK: - Table view data source
 
     /*
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-    */
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ticketDetail", for: indexPath)
-        let selection = (indexPath.section, indexPath.row)
-        var text: String = "None"
-        var color: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        
-        switch selection {
-        case (0, 0):
-            cell.textLabel?.text = "Ticket Number:"
-            (text, color) = formatForCell(property: ticket?.ticketNo)
-        case (0, 1):
-            cell.textLabel?.text = "First Name:"
-            (text, color) = formatForCell(property: ticket?.claimantFirstName)
-        case (0, 2):
-            cell.textLabel?.text = "Last Name:"
-            (text, color) = formatForCell(property: ticket?.claimantLastName)
-        case (0, 3):
-            cell.textLabel?.text = "Order Date:"
-            (text, color) = formatForCell(property: ticket?.orderDate)
-        case (0, 4):
-            cell.textLabel?.text = "Call Order No:"
-            (text, color) = formatForCell(property: ticket?.callOrderNo)
-        case (0, 5):
-            cell.textLabel?.text = "BPA No:"
-            (text, color) = formatForCell(property: ticket?.bpaNo)
-        case (0, 6):
-            cell.textLabel?.text = "CAN:"
-            (text, color) = formatForCell(property: ticket?.can)
-        case (0, 7):
-            cell.textLabel?.text = "Vendor TIN:"
-            (text, color) = formatForCell(property: ticket?.vendorTin)
-        case (0, 8):
-            cell.textLabel?.text = "SOC:"
-            (text, color) = formatForCell(property: ticket?.soc)
-        case (0, 9):
-            cell.textLabel?.text = "Rate:"
-            (text, color) = formatForCell(property: ticket?.rate)
+        switch section {
+        case 0:
+            return 11
+        case 1:
+            return 7
         default:
-            cell.textLabel?.text = "None"
-            cell.detailTextLabel?.text = "None"
+            return 0
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Ticket Information"
+        case 1:
+            return "Hearing Information"
+        default:
+            return ""
+        }
+    }
+    */
+    
+    // MARK: - TextField Delegate functions
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("End Editing at: \(textField.tag)")
         
-        cell.detailTextLabel?.text = text
-        cell.detailTextLabel?.textColor = color
-        
-        return cell
+        // Add the text to the dictionary.
+        if ticketFields != nil {
+            ticketFields?[textField.tag] = textField.text!
+        } else {
+            ticketFields = [Int: String]()
+            ticketFields?[textField.tag] = textField.text!
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Save the active textfield so we can get the text from it if user clicks "Save".
+        activeTextfield = textField
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        // Remove the active textfield.
+        activeTextfield = nil
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

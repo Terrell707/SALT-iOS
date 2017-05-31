@@ -8,6 +8,39 @@
 
 import Foundation
 
+// Used to get the tag of each textfield in the Create Ticket View Controller.
+//  The tags are defined per textfield in the Storyboard.
+enum TicketTextFieldTags: Int {
+    case TicketNumber = 0
+    case ClaimantFirstName = 4
+    case ClaimantLastName = 8
+    case HearingDate = 12
+    case OrderDate = 16
+    case CallOrderNumber = 20
+    case BPANumber = 24
+    case CAN = 28
+    case VendorTIN = 32
+    case SOC = 36
+    case OnTheRecord = 40
+    case FileType = 44
+    case OfficeCode = 48
+    case OfficeName = 52
+    case JudgeFirstName = 56
+    case JudgeLastName = 60
+    case RepFirstName = 64
+    case RepLastName = 68
+    case VocationalFirstName = 72
+    case VocationalLastName = 76
+    case MedicalFirstName = 80
+    case MedicalLastName = 84
+    case Medical2FirstName = 88
+    case Medical2LastName = 92
+    case Medical3FirstName = 96
+    case Medical3LastName = 100
+    case Interpreter = 104
+}
+
+// Used to get the data from the server.
 struct DataController {
     var tickets = [Ticket]()
     var monthYears = [String]()
@@ -64,7 +97,8 @@ struct DataController {
             let ticketNo = Int(randomNumber(inRange: 11111111...99999999))
             let bpaNo = "\(Int(randomNumber(inRange: 1111...9999)))"
             let can = 1234
-            let hearingSite = "\(sites[randomNumber(inRange: 0...sites.count-1)])"
+            let hearingSiteName = "\(sites[randomNumber(inRange: 0...sites.count-1)])"
+            let office = Office(name: hearingSiteName)
             let vendorTin = "12345"
             let soc = "1234"
             let rate = 60.00
@@ -76,7 +110,7 @@ struct DataController {
                 medicalExperts.append(generateExpert(role: Expert.Role.Medical))
             }
             
-            tickets.append(Ticket(orderDate: orderDate, callOrderNo: callOrderNo, claimantFirstName: firstName, claimantLastName: lastName, ticketNo: ticketNo, bpaNo: bpaNo, can: can, hearingSite: hearingSite, vendorTin: vendorTin, soc: soc, usageDate: usageDate, rate: rate, onTheRecord: onTheRecord, fileType: fileType, judge: generateJudge(), representatives: generateExpert(role: Expert.Role.Representative), vocational: generateExpert(role: Expert.Role.Vocational), medicals: medicalExperts, interpreter: nil))
+            tickets.append(Ticket(ticketNo: ticketNo, firstName: firstName, lastName: lastName, orderDate: orderDate, callOrderNo: callOrderNo, bpaNo: bpaNo, can: can, vendorTin: vendorTin, soc: soc, usageDate: usageDate, rate: rate, onTheRecord: onTheRecord, fileType: fileType, hearingSite: office, judge: generateJudge(), representative: generateExpert(role: Expert.Role.Representative), vocational: generateExpert(role: Expert.Role.Vocational), medicals: medicalExperts, interpreter: nil))
         }
     }
     
@@ -92,8 +126,7 @@ struct DataController {
         let codes = ["X84", "X95", "X43"]
         let names = ["X84": "Sacramento", "X95": "San Jose", "X43": "Oakland"]
         let code = "\(codes[randomNumber(inRange: 0...codes.count-1)])"
-        let address = "1234 Test Blvd, Someplace CA, 91234"
-        
+        let address = Address(street: "1234 Test Blvd", street2: "Suite 203", city: "Sacramento", state: "CA", zip: "91234")
         return Office(code: code, name: names[code], address: address, phoneNumber: "(123)456-7890", email: "testemail@ssa.com", can: "1234", pay: 60.00)
     }
     

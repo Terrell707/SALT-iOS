@@ -30,7 +30,7 @@ class TicketDetailTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("\(ticket?.ticketNo!)")
+        print("Ticket Number: \(ticket?.ticketNo! ?? 00000000)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +56,7 @@ extension TicketDetailTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 10
+            return 11
         case 1:
             return 7
         default:
@@ -92,24 +92,27 @@ extension TicketDetailTableViewController {
             cell.textLabel?.text = "Last Name:"
             (text, color) = formatForCell(property: ticket?.claimantLastName)
         case (0, 3):
+            cell.textLabel?.text = "Hearing Date:"
+            (text, color) = formatForCell(property: ticket?.usageDate)
+        case (0, 4):
             cell.textLabel?.text = "Order Date:"
             (text, color) = formatForCell(property: ticket?.orderDate)
-        case (0, 4):
+        case (0, 5):
             cell.textLabel?.text = "Call Order No:"
             (text, color) = formatForCell(property: ticket?.callOrderNo)
-        case (0, 5):
+        case (0, 6):
             cell.textLabel?.text = "BPA No:"
             (text, color) = formatForCell(property: ticket?.bpaNo)
-        case (0, 6):
+        case (0, 7):
             cell.textLabel?.text = "CAN:"
             (text, color) = formatForCell(property: ticket?.can)
-        case (0, 7):
+        case (0, 8):
             cell.textLabel?.text = "Vendor TIN:"
             (text, color) = formatForCell(property: ticket?.vendorTin)
-        case (0, 8):
+        case (0, 9):
             cell.textLabel?.text = "SOC:"
             (text, color) = formatForCell(property: ticket?.soc)
-        case (0, 9):
+        case (0, 10):
             cell.textLabel?.text = "Rate:"
             (text, color) = formatForCell(property: ticket?.rate)
         case (1, 0):
@@ -123,7 +126,7 @@ extension TicketDetailTableViewController {
             (text, color) = formatForCell(property: ticket?.judge)
         case (1, 3):
             cell.textLabel?.text = "Representative:"
-            (text, color) = formatForCell(property: ticket?.representatives)
+            (text, color) = formatForCell(property: ticket?.representative)
         case (1, 4):
             cell.textLabel?.text = "Vocational Expert:"
             (text, color) = formatForCell(property: ticket?.vocational)
@@ -152,7 +155,7 @@ extension TicketDetailTableViewController {
         if let prop = property {
             // Format the date to string.
             if prop is Date {
-                return ((prop as! Date).toString(), textColor)
+                return ((prop as! Date).toString()!, textColor)
             }
             // Convert int to string.
             else if prop is Int {

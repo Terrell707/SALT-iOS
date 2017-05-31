@@ -13,4 +13,12 @@ struct Judge {
     var lastName: String?
     var office: Office?
     var active: Bool?
+    
+    // Create an empty Judge.
+    init(firstName: String? = nil, lastName: String? = nil, office: Office? = nil, active:Bool? = nil) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.office = office
+        self.active = active
+    }
 }
